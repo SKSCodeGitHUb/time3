@@ -22,19 +22,19 @@ pipeline {
 		
 		stage('Deploy') {
             steps {
-                Cp /web/target/*.war D:/Tomcat/apache-tomcat-9.0.46-windows-x64/apache-tomcat-9.0.46/webapps
+                bat 'Cp /web/target/*.war D:/Tomcat/apache-tomcat-9.0.46-windows-x64/apache-tomcat-9.0.46/webapps'
             }
         }
 		
 		stage('Stop Tomcat') {
             steps {
-                cd D:\Tomcat\apache-tomcat-9.0.46-windows-x64\apache-tomcat-9.0.46\bin
+                bat 'cd D:\Tomcat\apache-tomcat-9.0.46-windows-x64\apache-tomcat-9.0.46\bin'
 				bat 'shutdown.bat'
             }
         }
 		stage('Start Tomcat') {
             steps {
-                cd D:\Tomcat\apache-tomcat-9.0.46-windows-x64\apache-tomcat-9.0.46\bin
+                bat 'cd D:\Tomcat\apache-tomcat-9.0.46-windows-x64\apache-tomcat-9.0.46\bin'
 				bat 'start.bat'
             }
         }
